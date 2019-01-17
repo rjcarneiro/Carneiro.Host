@@ -23,4 +23,4 @@ var options = Options.Create<GenericHandlerSettings>(new GenericHandlerSettings
 
 ## Team
 
-@rjcarneiro
+[Ricardo Carneiro](https://github.com/rjcarneiro)
