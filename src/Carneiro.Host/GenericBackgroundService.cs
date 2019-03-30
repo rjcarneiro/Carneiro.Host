@@ -10,9 +10,9 @@ namespace Carneiro.Host
     {
         private readonly Random _random = new Random(Guid.NewGuid().GetHashCode());
 
-        protected GenericHandlerSettings Settings { get; }
+        protected GenericBackgroundSettings Settings { get; }
 
-        protected GenericBackgroundService(IOptions<GenericHandlerSettings> handlerSettings)
+        protected GenericBackgroundService(IOptions<GenericBackgroundSettings> handlerSettings)
         {
             Settings = handlerSettings?.Value ?? throw new ArgumentNullException(nameof(handlerSettings));
         }
@@ -31,14 +31,18 @@ namespace Carneiro.Host
         protected abstract Task RunAsync(CancellationToken token);
     }
 
-    public class GenericHandlerSettings
+    public class GenericBackgroundSettings
     {
-        public GenericHandlerTimeoutSettings Timeout { get; set; }
+        public GenericBackgroundTimeoutSettings Timeout { get; set; } = new GenericBackgroundTimeoutSettings();
+
+        public override string ToString() => Timeout.ToString();
     }
 
-    public class GenericHandlerTimeoutSettings
+    public class GenericBackgroundTimeoutSettings
     {
         public int Min { get; set; } = 1;
         public int Max { get; set; } = 5;
+
+        public override string ToString() => $"Min: {Min} seconds Max: {Max} seconds";
     }
 }
