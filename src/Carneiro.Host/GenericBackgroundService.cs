@@ -30,19 +30,4 @@ namespace Carneiro.Host
 
         protected abstract Task RunAsync(CancellationToken token);
     }
-
-    public class GenericBackgroundSettings
-    {
-        public GenericBackgroundTimeoutSettings Timeout { get; set; } = new GenericBackgroundTimeoutSettings();
-
-        public override string ToString() => Timeout.ToString();
-    }
-
-    public class GenericBackgroundTimeoutSettings
-    {
-        public int Min { get; set; } = 1;
-        public int Max { get; set; } = 5;
-
-        public override string ToString() => $"Min: {Min} seconds Max: {Max} seconds";
-    }
 }
