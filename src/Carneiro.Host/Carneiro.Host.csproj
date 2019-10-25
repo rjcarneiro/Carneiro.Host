@@ -22,6 +22,25 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.0.0" />
   </ItemGroup>
 
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Carneiro.Host.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <NoWarn>1701;1702;NU5105;</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Carneiro.Host.xml</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <NoWarn>1701;1702;NU5105;</NoWarn>
+    <NoWarn>1701;1702;NU5105;</NoWarn>
+  </PropertyGroup>
+
+
   <ItemGroup>
     <None Include="..\..\LICENSE">
       <Pack>True</Pack>
